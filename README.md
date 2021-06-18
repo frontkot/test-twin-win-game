@@ -2,7 +2,7 @@ Simple react app game like casino
 
 How to run
 
-<!-- install all dependencies -->
+Install all dependencies
 - npm i 
-<!-- run project -->
+Run project
 - npm start
