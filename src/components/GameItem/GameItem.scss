@@ -6,58 +6,10 @@
     margin: 0;
     list-style-type: none;
     margin: 0 8px;
-    animation: slide-bottom 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     &--active {
-      animation: slide-bottom-active 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
       margin: 0;
       padding: 20px 24px;
       font-size: 18px;
     }
-  }
-}
-
-@keyframes slide-bottom {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  25% {
-    transform: translateY(-22px);
-    opacity: .75;
-  }
-  50% {
-    transform: translateY(-44px);
-    opacity: .5;
-  }
-  75% {
-    transform: translateY(-11px);
-    opacity: .15;
-
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-bottom-active {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  25% {
-    transform: translateY(-30px);
-    opacity: .75;
-  }
-  50% {
-    transform: translateY(-60px);
-    opacity: .5;
-  }
-  75% {
-    transform: translateY(-30px);
-    opacity: .15;
-
-  }
-  100% {
-    transform: translateY(0);
   }
 }
