@@ -3,7 +3,8 @@
 }
 
 .game__content {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
   padding: 50px;
 }

@@ -1,31 +1,34 @@
 import './App.scss';
 import GameColumn from './components/GameColumn/GameColumn';
 import StartButton from './components/StartButton/StartButton';
-
-const gameArr = [
-  {value: 1, content: '1', isActive: true},
-  {value: 2, content: '2', isActive: false},
-  {value: 3, content: '3', isActive: false},
-  {value: 4, content: '4', isActive: false},
-  {value: 5, content: '5', isActive: true},
-  {value: 6, content: '6', isActive: true},
-  {value: 7, content: '7', isActive: true},
-  {value: 8, content: '8', isActive: true},
-  {value: 9, content: '9', isActive: true},
-  {value: 10, content: '10', isActive: true},
-]
+import { useState } from 'react';
+import { gameArr, startGame, columnAction, randomNumber } from './utils';
 
 const App = () => {
+  const [firstColumnArr, setFirstColumnArr] = useState(gameArr.reverse());
+  const [secondColumnArr, setSecondColumnArr] = useState(gameArr.reverse());
+  const [thirdColumnArr, setThirdColumnArr] = useState(gameArr.reverse());
+  const [fourthColumnArr, setFourthColumnArr] = useState(gameArr.reverse());
+  const [fifthColumnArr, setFifthColumnArr] = useState(gameArr.reverse());
+
+  const interval = 150;
+  const timerPlus = 5;
+  const setArr = [
+    {arr: firstColumnArr, numOfActions: randomNumber(5, 10), timeoutPlus: timerPlus, interval: interval, setArr: setFirstColumnArr},
+    {arr: secondColumnArr, numOfActions: randomNumber(11, 15), timeoutPlus: timerPlus+1, interval:  interval+10, setArr: setSecondColumnArr},
+    {arr: thirdColumnArr, numOfActions: randomNumber(16, 20), timeoutPlus: timerPlus+2, interval:  interval+20, setArr: setThirdColumnArr},
+    {arr: fourthColumnArr,numOfActions: randomNumber(21, 25), timeoutPlus: timerPlus+3, interval:  interval+30, setArr: setFourthColumnArr},
+    {arr: fifthColumnArr, numOfActions: randomNumber(26, 30), timeoutPlus: timerPlus+4, interval:  interval+40, setArr: setFifthColumnArr},
+  ]
+
+  const renderItems = setArr.map((e, index) => <GameColumn items={e.arr} key={index}/>)
+
   return (
     <div className="App">
       <div className='game__content'>
-        <GameColumn items={gameArr}/>
-        <GameColumn items={gameArr}/>
-        <GameColumn items={gameArr}/>
-        <GameColumn items={gameArr}/>
-        <GameColumn items={gameArr}/>
+        {renderItems}
       </div>
-      <StartButton />
+      <StartButton onClick={() => startGame(setArr, columnAction)} text='Spin'/>
     </div>
   );
 }

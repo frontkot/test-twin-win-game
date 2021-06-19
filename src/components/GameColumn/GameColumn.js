@@ -10,13 +10,14 @@ const GameColumn = ({
       key={index}
       value={e.value}
       content={e.content}
+      isActive={index === 4 ? true : false}
     />
   )
 
   return (
-    <div className='column__container'>
+    <ul className='column__container'>
       {renderItems}
-    </div>
+    </ul>
   );
 };
 

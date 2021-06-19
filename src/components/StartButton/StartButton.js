@@ -1,10 +1,10 @@
 import React from 'react';
 import './StartButton.scss';
 
-const StartButton = () => {
+const StartButton = ({ onClick, text }) => {
   return (
-    <button onClick={() => {}}>
-      Click me
+    <button onClick={onClick}>
+      {text}
     </button>
   );
 };
